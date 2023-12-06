@@ -7,7 +7,9 @@ export default function Task(props) {
     <View style={styles.item}>
       <View style={styles.itemLeft}>
         <TouchableOpacity style={styles.square}></TouchableOpacity>
-        <Text styles={styles.itemText}>{props.text}</Text>
+        <View style={styles.textContainer}>
+          <Text styles={styles.itemText}>{props.text}</Text>
+        </View>
       </View>
       <TouchableOpacity onPress={() => props.handleDeleteTask(props.index)}>
         <View style={styles.circular}></View>
@@ -30,10 +32,7 @@ const styles = StyleSheet.create({
   },
   itemLeft: {
     flexDirection: "row",
-    flexWrap: "wrap",
     alignItems: "center",
-    // borderWidth: 1,
-    // borderColor: "black",
   },
   square: {
     width: 24,
@@ -43,14 +42,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginRight: 15,
   },
-  itemText: {
-    maxWidth: "80%",
+  textContainer: {
+    width: "80%",
+    justifyContent: "center",
   },
+  itemText: {},
   circular: {
     width: 12,
     height: 12,
-    // borderColor: colors.delete,
-    // borderWidth: 2,
     backgroundColor: colors.delete,
     borderRadius: 5,
   },
