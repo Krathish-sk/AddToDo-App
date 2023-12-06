@@ -1,12 +1,20 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 
-export default function Task() {
+export default function Task(props) {
   return (
-    <View>
-      <Text>Task</Text>
+    <View style={styles.item}>
+      <View>
+        <View></View>
+        <Text>{props.text}</Text>
+      </View>
+      <View></View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: "#fff",
+  },
+});
