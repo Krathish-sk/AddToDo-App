@@ -1,14 +1,13 @@
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "react-native";
 import { useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
-  FlatList,
   Keyboard,
-  TouchableOpacity,
   SafeAreaView,
   ScrollView,
+  Dimensions,
 } from "react-native";
 import { colors } from "./assets/colors";
 import AddTask from "./components/AddTask";
@@ -30,11 +29,11 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="dark" />
+      <StatusBar backgroundColor={colors.background} barStyle="dark-content" />
       {/* Display Todo field */}
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>My Todo List</Text>
-        <ScrollView>
+        <ScrollView style={styles.itemContainer}>
           <View style={styles.items}>
             {allTask.map((task, index) => {
               return (
@@ -58,32 +57,45 @@ export default function App() {
   );
 }
 
+const statusBarHeight = StatusBar.currentHeight;
+
+const screenHeight = Dimensions.get("window").height;
+
+const contentHeight = Math.floor((screenHeight * 85) / 100);
+
+const inputHeight = Math.floor(screenHeight - contentHeight);
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.background,
     flex: 1,
+    paddingTop: statusBarHeight,
   },
   tasksWrapper: {
-    paddingTop: 80,
     paddingHorizontal: 20,
+    height: contentHeight,
   },
   sectionTitle: {
     fontSize: 24,
     fontWeight: "bold",
   },
+  itemContainer: {
+    marginTop: 20,
+  },
   items: {
-    marginTop: 30,
+    marginVertical: 20,
   },
   inputWrapper: {
     position: "absolute",
     bottom: 0,
     width: "100%",
-    height: "15%",
+    height: inputHeight,
     justifyContent: "center",
     backgroundColor: colors.secondary,
     borderWidth: 1,
     borderColor: colors.primary,
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
+    flex: 2,
   },
 });
