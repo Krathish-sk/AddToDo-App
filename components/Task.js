@@ -5,24 +5,26 @@ import { colors } from "../assets/colors";
 export default function Task(props) {
   return (
     <View style={styles.item}>
-      <View>
-        <View></View>
-        <Text>{props.text}</Text>
+      <View style={styles.itemLeft}>
+        <TouchableOpacity style={styles.square}></TouchableOpacity>
+        <Text styles={styles.itemText}>{props.text}</Text>
       </View>
-      <View></View>
+      <View style={styles.circular}></View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: "#fff",
+    backgroundColor: colors.secondary,
     padding: 15,
     borderRadius: 10,
     flexDirection: "row",
     marginBottom: 20,
     alignItems: "center",
     justifyContent: "space-between",
+    borderColor: colors.primary,
+    borderWidth: 1,
   },
   itemLeft: {
     flexDirection: "row",
