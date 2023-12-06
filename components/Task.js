@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
   },
   square: {
     width: 24,
