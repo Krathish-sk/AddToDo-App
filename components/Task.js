@@ -9,7 +9,9 @@ export default function Task(props) {
         <TouchableOpacity style={styles.square}></TouchableOpacity>
         <Text styles={styles.itemText}>{props.text}</Text>
       </View>
-      <View style={styles.circular}></View>
+      <TouchableOpacity onPress={() => props.handleDeleteTask(props.index)}>
+        <View style={styles.circular}></View>
+      </TouchableOpacity>
     </View>
   );
 }

@@ -30,25 +30,25 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <StatusBar style="dark" />
-        {/* Display Todo field */}
-        <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>My Todo List</Text>
+      <StatusBar style="dark" />
+      {/* Display Todo field */}
+      <View style={styles.tasksWrapper}>
+        <Text style={styles.sectionTitle}>My Todo List</Text>
+        <ScrollView>
           <View style={styles.items}>
             {allTask.map((task, index) => {
               return (
-                <TouchableOpacity
+                <Task
+                  text={task}
+                  index={index}
                   key={index}
-                  onPress={() => handleDeleteTask(index)}
-                >
-                  <Task text={task} />
-                </TouchableOpacity>
+                  handleDeleteTask={handleDeleteTask}
+                />
               );
             })}
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
 
       {/* Display User input field */}
       <View style={styles.inputWrapper}>
