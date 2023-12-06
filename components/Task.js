@@ -18,7 +18,7 @@ export default function Task(props) {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.lightBackground,
     padding: 15,
     borderRadius: 10,
     flexDirection: "row",
@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
-    borderWidth: 1,
-    borderColor: "black",
+    // borderWidth: 1,
+    // borderColor: "black",
   },
   square: {
     width: 24,
     height: 24,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.complete,
     opacity: 0.4,
     borderRadius: 5,
     marginRight: 15,
@@ -49,8 +49,9 @@ const styles = StyleSheet.create({
   circular: {
     width: 12,
     height: 12,
-    borderColor: colors.primary,
-    borderWidth: 2,
+    // borderColor: colors.delete,
+    // borderWidth: 2,
+    backgroundColor: colors.delete,
     borderRadius: 5,
   },
 });

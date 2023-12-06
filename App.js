@@ -1,5 +1,5 @@
-import { StatusBar } from "react-native";
 import { useState } from "react";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   ScrollView,
   Dimensions,
+  StatusBar,
 } from "react-native";
 import { colors } from "./assets/colors";
 import AddTask from "./components/AddTask";
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: "bold",
+    textAlign: "center",
   },
   itemContainer: {
     marginTop: 20,

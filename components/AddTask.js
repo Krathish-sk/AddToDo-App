@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   addWrapper: {
     width: 50,
     height: 50,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.lightBackground,
     borderRadius: 60,
     justifyContent: "center",
     alignItems: "center",
