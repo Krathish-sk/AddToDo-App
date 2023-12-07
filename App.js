@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LinearGradient } from "expo-linear-gradient";
+import { useFonts } from "expo-font";
 import {
   View,
   Text,
@@ -10,11 +10,18 @@ import {
   Dimensions,
   StatusBar,
 } from "react-native";
+import AppLoading from "expo-app-loading";
+
 import { colors } from "./assets/colors";
 import AddTask from "./components/AddTask";
 import Task from "./components/Task";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "manrope-bold": require("./assets/fonts/Manrope-Bold.ttf"),
+    "manrope-regular": require("./assets/fonts/Manrope-Regular.ttf"),
+  });
+
   const [allTask, setAllTask] = useState(["Hello", "Walk the dog"]);
 
   function handleAddTask(task) {
@@ -26,6 +33,10 @@ export default function App() {
     let itemCopy = [...allTask];
     itemCopy.splice(index, 1);
     setAllTask(itemCopy);
+  }
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
   }
 
   return (
@@ -78,8 +89,8 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: "bold",
     textAlign: "center",
+    fontFamily: "manrope-bold",
   },
   itemContainer: {
     marginTop: 20,

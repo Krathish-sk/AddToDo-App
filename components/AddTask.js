@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: colors.primary,
     borderWidth: 1,
+    fontFamily: "manrope-regular",
   },
   addWrapper: {
     width: 50,
@@ -70,5 +71,7 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
     borderWidth: 1,
   },
-  addText: {},
+  addText: {
+    fontFamily: "manrope-bold",
+  },
 });

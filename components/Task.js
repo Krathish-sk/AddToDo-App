@@ -8,7 +8,7 @@ export default function Task(props) {
       <View style={styles.itemLeft}>
         <TouchableOpacity style={styles.square}></TouchableOpacity>
         <View style={styles.textContainer}>
-          <Text styles={styles.itemText}>{props.text}</Text>
+          <Text style={{ fontFamily: "manrope-regular" }}>{props.text}</Text>
         </View>
       </View>
       <TouchableOpacity onPress={() => props.handleDeleteTask(props.index)}>
@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     width: "80%",
     justifyContent: "center",
   },
-  itemText: {},
   circular: {
     width: 12,
     height: 12,
