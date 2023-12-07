@@ -5,4 +5,5 @@ export const colors = {
   secondary: "#F7F5EB",
   complete: "#2192FF",
   delete: "#FF6B6B",
+  completeTask: "#ADE792",
 };

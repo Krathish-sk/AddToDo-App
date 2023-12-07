@@ -1,16 +1,32 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
+import React, { useState } from "react";
 import { colors } from "../assets/colors";
 
 export default function Task(props) {
+  const [completeTask, setCompleteTask] = useState(false);
   return (
-    <View style={styles.item}>
-      <View style={styles.itemLeft}>
-        <TouchableOpacity style={styles.square}></TouchableOpacity>
-        <View style={styles.textContainer}>
-          <Text style={{ fontFamily: "manrope-regular" }}>{props.text}</Text>
+    <View style={[styles.item, completeTask ? styles.completeTask : null]}>
+      <Pressable onPress={() => setCompleteTask((prev) => !prev)}>
+        <View style={styles.itemLeft}>
+          <TouchableOpacity style={styles.square}></TouchableOpacity>
+          <View style={styles.textContainer}>
+            <Text
+              style={[
+                { fontFamily: "manrope-regular" },
+                completeTask ? styles.completeTask : null,
+              ]}
+            >
+              {props.text}
+            </Text>
+          </View>
         </View>
-      </View>
+      </Pressable>
       <TouchableOpacity onPress={() => props.handleDeleteTask(props.index)}>
         <View style={styles.circular}></View>
       </TouchableOpacity>
@@ -29,6 +45,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderColor: colors.primary,
     borderWidth: 1,
+  },
+  completeTask: {
+    backgroundColor: colors.completeTask,
+    textDecorationLine: "line-through",
   },
   itemLeft: {
     flexDirection: "row",
